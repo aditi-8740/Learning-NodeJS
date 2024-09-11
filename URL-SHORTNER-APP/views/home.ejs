@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home page</title>
+    <link rel="stylesheet" href="/stylesheets/home.css">
+</head>
+
+<body>
+    <div class="form-box">
+    <h1 class="Website_Heading">URL Shortner</h1>
+        <form action="/url" method="post">  <!--Action mean kis route pr POST method krna ha...-->
+            <label for="long-link-input">Paste your long link here</label>
+            <input type="text" id="long-link-input" name="url" placeholder="https://example.com">
+            <button type="submit" id="Generate-url">Generate  </button>
+        </form>
+        <% if (locals.id) { %>  <!--Backend se jo data aata ha, wo locals ma hota ha... -->
+            <p><b>URL Generated:</b>   http://localhost:<%= process.env.PORT %>/url/<%= id %></p>
+        <% } %>
+    </div>
+        <table>
+            <tr>
+                <th>Original url</th>
+                <th>Shortened url</th>
+                <th>Clicks</th>
+            </tr>
+            <% URL.forEach(entry => { %>
+            <tr>
+                <td>http://localhost:8000/url/<%= entry.shortId %></td>
+                <td><%= entry.redirectURL %></td>
+                <td><%= entry.visitHistory.length %></td>
+            </tr>
+            <% }) %>    
+        </table>
+    
+    <script>
+        let GenerateUrlButton = document.getElementById("Generate-url");
+        GenerateUrlButton.addEventListener('click',()=>{
+            GenerateUrlButton.style.outline  = "1px solid rgb(255, 0, 0)";
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Uploads</title>
+    <style>
+        form>button{
+            color: white;
+            background-color: #ff0000;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            padding: 5px 10px;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    <form action="/upload" method="post" enctype="multipart/form-data">  <!--"action" mean kiss url pr upload krna ha..-->
+        <label for="profilePhoto">Upload your Profile </label>
+        <input type="file" name="profilePhoto"> <br>
+        <input type="file" name="CoverPhoto"> <br>
+        <button type="submit">Upload</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,16 @@
+what cookie-parser do? or i can say used for?
+
+ChatGPT said:
+
+cookie-parser is used in Express.js applications to handle and manage cookies more easily. Specifically, it does the following:
+
+Parses Cookies: It extracts and parses the cookies sent by the client in the Cookie header of HTTP requests. This allows you to access cookies in your Express routes as an object, using req.cookies.
+
+Decodes Cookie Values: If the cookies are URL-encoded, cookie-parser automatically decodes them, so you don't have to handle the decoding yourself.
+
+Handles Signed Cookies: If you want to ensure the integrity of a cookie (to make sure it hasn't been tampered with), you can sign the cookie with a secret key. cookie-parser can verify these signed cookies and make them accessible through req.signedCookies.
+
+Summary
+Primary Purpose: Makes it easy to access, parse, and manage cookies in Express.js applications.
+How It's Used: Added as middleware to your Express app to automatically handle cookies for each incoming request.
+By using cookie-parser, you simplify the task of working with cookies, making your code cleaner and more secure.
